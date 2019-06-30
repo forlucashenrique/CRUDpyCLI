@@ -14,8 +14,7 @@ def run():
             db.insert()
         elif opcao == 2:
             colunas = ['nome', 'descricao', 'carga', 'totaulas', 'ano']
-            fa.menu_de_cabecalho()
-            fa.consulta_todos_os_cursos()
+            fa.menu_atualizar()
             idcurso = int(input('\nDigite o ID do curso que deseja atualizar: '))
             fa.menu_update()
             campo = str(input('Escolha um campo para alteração: '))
@@ -28,8 +27,7 @@ def run():
 
 
         elif opcao == 3:
-            fa.menu_de_cabecalho()
-            fa.consulta_todos_os_cursos()
+            fa.menu_excluir()
             idcurso = int(input('\nDigite o ID do curso que deseja deletar: '))
             db.delete(idcurso)
         elif opcao == 4:

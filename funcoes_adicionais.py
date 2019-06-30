@@ -5,22 +5,6 @@ def limpa_tela():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
-def consulta_todos_os_cursos():
-    db = Crud()
-    sql = 'SELECT * FROM cursos;'
-    db.cursor.execute(sql)
-    registros = db.cursor.fetchall()
-    for registro in registros:
-        idcurso = registro[0]
-        nome = registro[1]
-        descricao = registro[2][:30]
-        carga = registro[3]
-        total_aulas = registro[4]
-        ano = registro[5]
-        print(f'{idcurso:<5}{nome:<20}{descricao:<35}{carga:<10}{total_aulas:<20}{ano:<5}')
-    db.close()
-
-
 def menu_de_cabecalho():
     limpa_tela()
     print(f'{"Id":<5}', end='')
@@ -70,11 +54,24 @@ def menu_update():
     print('[3] -> CARGA HORÁRIA')
     print('[4] -> TOTAL DE AULAS')
     print('[5] -> ANO')
-
+    print()
 
 def menu_cadastro():
     limpa_tela()
     print('=' * 30)
     print('CADASTRO DE CURSOS'.center(30))
     print('=' * 30)
-    
+
+
+def menu_excluir():
+    limpa_tela()
+    print('=' * 50)
+    print('EXCLUSÃO DE CURSOS'.center(50))
+    print('=' * 50)
+
+
+def menu_atualizar():
+    limpa_tela()
+    print('=' * 50)
+    print('ATUALIZAÇÃO DE CURSOS'.center(50))
+    print('=' * 50)
